@@ -1,0 +1,85 @@
+# More information about the configuration file can be found here:
+# https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-sam-cli-config.html
+version = 0.1
+
+[default]
+[default.global.parameters]
+stack_name = "TestUpgradeRubyStaging"
+parameter_overrides = "Environment=staging"
+s3_bucket = "bebanjo-aws-sam-cli-sourcebucket"
+s3_prefix = "test_upgrade_to_ruby_3_2_staging"
+
+[default.build.parameters]
+cached = true
+parallel = true
+
+[default.validate.parameters]
+lint = true
+
+[default.deploy.parameters]
+capabilities = "CAPABILITY_IAM"
+confirm_changeset = true
+
+[default.sync.parameters]
+watch = true
+
+[default.local_start_api.parameters]
+warm_containers = "EAGER"
+
+[default.local_start_lambda.parameters]
+warm_containers = "EAGER"
+
+[preproduction]
+[preproduction.global.parameters]
+stack_name = "TestUpgradeRubyPreproduction"
+parameter_overrides = "Environment=preproduction"
+s3_bucket = "bebanjo-aws-sam-cli-sourcebucket"
+s3_prefix = "test_upgrade_to_ruby_3_2_preproduction"
+
+[preproduction.build.parameters]
+cached = true
+parallel = true
+
+[preproduction.validate.parameters]
+lint = true
+
+[preproduction.deploy.parameters]
+capabilities = "CAPABILITY_IAM"
+confirm_changeset = true
+
+[preproduction.sync.parameters]
+watch = true
+
+[preproduction.local_start_api.parameters]
+warm_containers = "EAGER"
+
+[preproduction.local_start_lambda.parameters]
+warm_containers = "EAGER"
+
+[production]
+[production.global.parameters]
+stack_name = "TestUpgradeRubyProduction"
+parameter_overrides = "Environment=production"
+s3_bucket = "bebanjo-aws-sam-cli-sourcebucket"
+s3_prefix = "test_upgrade_to_ruby_3_2_production"
+
+[production.build.parameters]
+cached = true
+parallel = true
+
+[production.validate.parameters]
+lint = true
+
+[production.deploy.parameters]
+capabilities = "CAPABILITY_IAM"
+confirm_changeset = true
+
+
+[production.sync.parameters]
+watch = true
+
+[production.local_start_api.parameters]
+warm_containers = "EAGER"
+
+[production.local_start_lambda.parameters]
+warm_containers = "EAGER"

@@ -1,0 +1,30 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: >
+  test_upgrade_to_ruby_3_2
+Parameters:
+  Environment:
+    Type: String
+    Default: staging
+
+Globals:
+  Function:
+    Timeout: 3
+    MemorySize: 128
+
+Resources:
+  TestUpgradeRubyFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: src/
+      Handler: filter.lambda_handler
+      FunctionName: !Sub "test_upgrade_to_ruby_3_2_${Environment}"
+      Description: !Sub "Filtering for ${Environment}"
+      Runtime: ruby3.2
+      Environment:
+        Variables:
+          RAILS_ENV: !Sub "${Environment}"
+      Tags:
+        Environment: !Sub "${Environment}"
+        Company: kbbltv
+        Name: !Sub "test_upgrade_to_ruby_3_2-${Environment}"
