@@ -19,7 +19,7 @@ RUN wget https://github.com/aws/aws-sam-cli/releases/latest/download/aws-sam-cli
 RUN unzip aws-sam-cli-linux-x86_64.zip -d /root/sam-installation
 RUN /root/sam-installation/install
 
-RUN git clone https://github.com/aws/aws-sam-cli.git
+RUN git clone https://github.com/sidhujus/aws-sam-cli.git
 RUN python -m venv .venv
 #RUN source .venv/bin/activate; cd aws-sam-cli; make init; ln -s /usr/bin/samdev $(which samdev)
 RUN bash -lc "source .venv/bin/activate && cd aws-sam-cli && make init && ln -s /root/.venv/bin/samdev /usr/bin/"
