@@ -15,7 +15,7 @@ RUN rbenv install 3.2.2
 RUN bash -lc "rbenv global 3.2.2; gem install bundler"
 
 WORKDIR /root
-RUN wget https://github.com/aws/aws-sam-cli/releases/latest/download/aws-sam-cli-linux-x86_64.zip
+COPY aws-sam-cli-linux-x86_64.zip /root/
 RUN unzip aws-sam-cli-linux-x86_64.zip -d /root/sam-installation
 RUN /root/sam-installation/install
 
